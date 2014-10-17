@@ -330,7 +330,7 @@ public class RemoteDeviceEEPD20108 extends StandardDevice implements RemoteDevic
         } else if (userData instanceof UserDataEEPD201CMD07) {
             handleIncomingActuatorMeasurementResponse((UserDataEEPD201CMD07) userData);
         } else {
-            LOGGER.warn("Unexpected user data received (CMD=0x%02X).", userData.getCmd());
+            LOGGER.warn("Unexpected user data received (CMD={}).", userData.getCmd());
         }
     }
 
@@ -356,7 +356,7 @@ public class RemoteDeviceEEPD20108 extends StandardDevice implements RemoteDevic
         } else if (packet instanceof RadioPacketUTE) {
             parseRadioPacketUTE((RadioPacketUTE) packet);
         } else {
-            LOGGER.warn("Don't know how to handle radio choice 0x%02X.", packet.getChoice());
+            LOGGER.warn("Don't know how to handle radio choice. Packet: " + packet.toString());
         }
     }
 
